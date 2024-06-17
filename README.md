@@ -8,6 +8,11 @@ install [Pygame Community Edition](https://github.com/pygame-community/pygame-ce
 
 if it says that pygbag isnt installed even though you have it installed try using: `py -m pygbag {yourProjectRoot}`
 
+## Getting Help
+[Pygame Community discord server](https://discord.com/invite/pygame) 
+
+[Pygame Web Documentation](https://pygame-web.github.io/)
+
 ## Assets Used
 
 Ground and Player sprites from: [Kenney platformer Pack Redux](https://kenney.nl/assets/platformer-pack-redux)
