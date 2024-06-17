@@ -2,9 +2,11 @@
 
 A sample project on how to add web export to your pygame games using [pygbag](https://pypi.org/project/pygbag/)
 
-## Requirements
+## Steps
 
-install [Pygame Community Edition](https://github.com/pygame-community/pygame-ce) by doing `pip uninstall pygame` and `pip install pygame-ce` (you dont need to change your code)
+`pip install pygbag`
+`pygbag .`
+`pygbag --archive .` --> to package for itch.io
 
 if it says that pygbag isnt installed even though you have it installed try using: `py -m pygbag {yourProjectRoot}`
 
