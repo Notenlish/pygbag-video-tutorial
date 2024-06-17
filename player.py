@@ -3,25 +3,29 @@ import pygame
 
 class Player:
     def __init__(self, x, y) -> None:
-        self.sprite_paths = {"stand":["stand.png"], "walk":["walk1.png", "walk2.png"], "jump":["jump.png"]}
-        
+        self.sprite_paths = {
+            "stand": ["stand.png"],
+            "walk": ["walk1.png", "walk2.png"],
+            "jump": ["jump.png"],
+        }
+
         _size = pygame.image.load(self.sprite_paths["stand"][0]).get_size()
         self.rect = pygame.Rect(x, y, _size[0], _size[1])
         self.vel = [0, 0]
-        
+
         self.jump_speed = 350
         self.on_ground = False
         self.speed = 250
-        
+
         self.anim_index = 0
         self.anim_timer = 0
         self.anim_name = "stand"
         self.flip_h = False
-        
+
         # .waw files wont work with pygbag!
         self.jump_sound = pygame.mixer.Sound("jump.ogg")
         self.jump_sound.set_volume(0.15)
-        
+
         self.load_sprites()
 
     def load_sprites(self):
@@ -44,7 +48,7 @@ class Player:
             self.vel[0] = self.speed
         else:
             self.vel[0] = 0
-        
+
         # anim
         if not self.on_ground:
             self.anim_name = "jump"
@@ -53,20 +57,18 @@ class Player:
         else:
             self.anim_name = "stand"
             self.anim_timer = 0
-        
+
         self.anim_timer += dt
         if self.anim_timer >= 0.15:
             self.anim_timer = 0
             self.anim_index += 1
-        
+
         if self.vel[0] != 0:
             self.flip_h = self.vel[0] < 0
         self.anim_index %= len(self.sprites[self.anim_name])
-        
-        
-        
+
         # jumping and collision
-        self.vel[1] += 6 # gravity
+        self.vel[1] += 6  # gravity
         self.rect.move_ip((self.vel[0] * dt, self.vel[1] * dt))
         if self.rect.colliderect(ground.rect):
             self.on_ground = True

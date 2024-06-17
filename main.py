@@ -50,9 +50,7 @@ class App:
             self.render()
 
             self.dt = self.clock.tick(60) / 1000  # convert from ms to seconds
-            self.dt = min(
-                self.dt, 1
-            )  # keep dt from getting really big if the window isnt active
+
             self.time_elapsed += self.dt
 
             pygame.display.flip()
